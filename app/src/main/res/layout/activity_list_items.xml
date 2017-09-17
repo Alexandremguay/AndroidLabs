@@ -1,9 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:rowCount="2"
+    android:columnCount="2"
     tools:context="com.example.alexandremguay.androidlabs.ListItemsActivity">
 
-</android.support.constraint.ConstraintLayout>
+
+    <RadioButton
+        android:id="@+id/button1"
+        android:layout_gravity="fill"
+        android:text="RadioButton"
+        android:layout_columnWeight="1"
+        android:gravity="fill"/>
+
+    <CheckBox
+        android:id="@+id/button2"
+        android:layout_gravity="fill"
+        android:text="CheckBox"
+        android:layout_columnWeight="1"
+        android:gravity="fill"/>
+
+    <Switch
+        android:id="@+id/button3"
+        android:layout_gravity="fill"
+        android:text="What does it do?"
+        android:layout_columnWeight="1"
+        android:gravity="fill"/>
+
+    <ImageButton
+        android:id="@+id/button4"
+        android:layout_gravity="fill"
+        android:src="@android:drawable/ic_menu_camera"
+        android:text="ImageButton"
+        android:layout_columnWeight="1"/>
+
+</GridLayout>

@@ -4,6 +4,6 @@
     <string name="hello_message">Allo mon ami!</string>
     <string name="ButtonText">Entrer!</string>
     <string name="Login">Saisie</string>
-    <string name="LoginName">Saisie pour entrer</string>
+    <string name="LoginName">Entrer votre saisie</string>
     <string name="Password">Mot de Passe</string>
 </resources>
