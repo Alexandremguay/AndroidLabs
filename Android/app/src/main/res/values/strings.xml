@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <string name="app_name">AndroidLabs</string>
+    <string name="hello_message">Hello World!</string>
+    <string name="ButtonText">Enter</string>
+    <string name="Login">Login</string>
+    <string name="LoginName">Login Name</string>
+    <string name="Password">Password</string>
+    <string name="Camera">Cam</string>
+    <string name="dialog_message">Do you want to finish the activity?</string>
+    <string name="dialog_title">Finish Activity?</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="chat">Start Chat</string>
+    <string name="send">Send</string>
+
+
+</resources>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@android:dimen/app_icon_size"
+    android:visibility="visible"
+    tools:background="@drawable/ic_launcher_background"
+    tools:context="com.example.alexandremguay.android.StartActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif"
+        android:text="@string/hello_message"
+        android:textColor="@android:color/black"
+        android:textSize="36sp"
+        android:textStyle="bold|italic"
+        android:typeface="monospace"
+        android:layout_centerVertical="true"/>
+    //https://developer.android.com/guide/topics/ui/layout/relative.html
+
+    <Button
+        android:id="@+id/startButton"
+        android:layout_width="wrap_content"
+        android:layout_height="71dp"
+        android:background="@android:drawable/sym_def_app_icon"
+        android:fontFamily="serif"
+        android:text="@string/ButtonText"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:typeface="normal"
+        android:visibility="visible"
+        android:layout_below="@id/textView"
+ />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/startChat"
+        android:text="Start Chat"
+        android:layout_below="@id/startButton"/>
+
+</RelativeLayout>
