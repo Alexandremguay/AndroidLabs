@@ -20,7 +20,7 @@
         android:textStyle="bold|italic"
         android:typeface="monospace"
         android:layout_centerVertical="true"/>
-    //https://developer.android.com/guide/topics/ui/layout/relative.html
+    <!--https://developer.android.com/guide/topics/ui/layout/relative.html-->
 
     <Button
         android:id="@+id/startButton"
@@ -39,7 +39,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/startChat"
+        android:id="@+id/chat"
         android:text="Start Chat"
         android:layout_below="@id/startButton"/>
 

@@ -30,7 +30,10 @@
                     <category android:name="android.intent.category.DEFAULT" />
                 </intent-filter>
             </activity>
-            <activity android:name=".ChatWindow" />
+            <activity android:name=".ChatWindow" >
+
+            </activity>
+
         </application>
 
     </manifest>

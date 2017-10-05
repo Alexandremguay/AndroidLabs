@@ -1,5 +1,7 @@
 package com.example.alexandremguay.android;
 
+//auto indent 1) Ctrl+A , 2) Ctrl+Alt+L
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,8 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class StartActivity extends Activity
-    {
+public class StartActivity extends Activity {
     protected static final String ACTIVITY_NAME = "StartActivity";
     protected Button startButton;
     protected Button chat;
@@ -21,11 +22,13 @@ public class StartActivity extends Activity
         Log.i(ACTIVITY_NAME, "In onCreate()");
 
         startButton = (Button) findViewById(R.id.startButton);
-        chat = (Button) findViewById(R.id.startChat);
+        chat = (Button) findViewById(R.id.chat);
+
 
         startButton.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) { //similar to lambda expressions
+
                 Intent intent = new Intent(StartActivity.this, ListItemsActivity.class);
                 startActivityForResult(intent, 10);
                 onActivityResult(10, 10, intent);
@@ -34,13 +37,16 @@ public class StartActivity extends Activity
 
         chat.setOnClickListener(new View.OnClickListener() {
 
-            public void onClick(View v) {
+            public void onClick(View v) { //similar to lambda expressions
                 Log.i(ACTIVITY_NAME, "User Clicked Start Chat");
+
+                Intent intent = new Intent(StartActivity.this, ChatWindow.class);
+                startActivity(intent);
             }
         });
 
     }
-    //auto indent 1) Ctrl+A , 2) Ctrl+Alt+L
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
@@ -54,8 +60,6 @@ public class StartActivity extends Activity
                 toast.show();
             }
         }
-
-
     }
 
     @Override
@@ -88,6 +92,4 @@ public class StartActivity extends Activity
         super.onDestroy();
         Log.i(ACTIVITY_NAME, "In onDestroy()");
     }
-
-
 }
