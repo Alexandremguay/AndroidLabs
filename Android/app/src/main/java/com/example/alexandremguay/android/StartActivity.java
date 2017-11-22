@@ -21,12 +21,12 @@ public class StartActivity extends Activity {
         setContentView(R.layout.activity_start); //R is the java file that gets created from XML files;
         Log.i(ACTIVITY_NAME, "In onCreate()");
 
-        startButton = (Button) findViewById(R.id.startButton);
-        chat = (Button) findViewById(R.id.chat);
+        startButton = findViewById(R.id.startButton);
+        chat = findViewById(R.id.chat);
 
 
         startButton.setOnClickListener(new View.OnClickListener() {
-
+            @Override
             public void onClick(View v) { //similar to lambda expressions
 
                 Intent intent = new Intent(StartActivity.this, ListItemsActivity.class);
@@ -36,12 +36,13 @@ public class StartActivity extends Activity {
         });
 
         chat.setOnClickListener(new View.OnClickListener() {
-
+            @Override
             public void onClick(View v) { //similar to lambda expressions
                 Log.i(ACTIVITY_NAME, "User Clicked Start Chat");
-
                 Intent intent = new Intent(StartActivity.this, ChatWindow.class);
-                startActivity(intent);
+                startActivityForResult(intent, 10);
+                onActivityResult(10, 10, intent);
+
             }
         });
 

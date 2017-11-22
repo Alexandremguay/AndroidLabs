@@ -1,14 +1,18 @@
 package com.example.alexandremguay.android;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import org.w3c.dom.Text;
 
 public class LoginActivity extends Activity {
 
@@ -16,6 +20,7 @@ public class LoginActivity extends Activity {
     public static String pref_emails = "myemails"; //pref_emails is our STRING KEY - we initialize it to wtv, just to start off.
     public static SharedPreferences sharedPref;
     public static SharedPreferences.Editor editor;
+    private static EditText text;
     protected Button loginButton;
 
     @Override
@@ -24,18 +29,16 @@ public class LoginActivity extends Activity {
         setContentView(R.layout.activity_login);
         Log.i(ACTIVITY_NAME, "In onCreate()");
 
-//https://developer.android.com/training/basics/data-storage/shared-preferences.html#ReadSharedPreference
-
         sharedPref = getSharedPreferences(pref_emails, Context.MODE_PRIVATE);
+        editor = sharedPref.edit();
+        text = findViewById(R.id.editText);
+        text.setText(sharedPref.getString("DefaultEmail","email@domain.com"));
 
-        loginButton = (Button)findViewById(R.id.loginButton);
+        loginButton = findViewById(R.id.loginButton);
         loginButton.setOnClickListener(new View.OnClickListener(){
 
             public void onClick(View v) {
-                EditText text = (EditText)findViewById(R.id.editText);
                 String lastEmail = text.getText().toString();
-                sharedPref = getSharedPreferences(pref_emails, Context.MODE_PRIVATE);
-                editor = sharedPref.edit();
                 editor.putString("DefaultEmail", lastEmail); //setting value of "lastEmail" into sharedpreferences
                 editor.commit();
                 Intent intent = new Intent(LoginActivity.this, StartActivity.class);
@@ -56,9 +59,8 @@ public class LoginActivity extends Activity {
         super.onResume();
         Log.i(ACTIVITY_NAME, "In onResume()");
 
-        sharedPref = getSharedPreferences(pref_emails, Context.MODE_PRIVATE) ;
-        String savedEmail = sharedPref.getString("DefaultEmail", "email@domain.com"); //getting the input value of email address using sharedpreferences, to populate email address field on login screen
-        ((EditText)findViewById(R.id.editText)).setText(savedEmail);
+        String savedEmail = sharedPref.getString("DefaultEmail", null); //getting the input value of email address using sharedpreferences, to populate email address field on login screen
+        text.setText(savedEmail);
     }
 
 

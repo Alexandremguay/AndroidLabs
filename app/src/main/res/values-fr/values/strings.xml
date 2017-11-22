@@ -6,4 +6,11 @@
     <string name="LoginName">Login Name</string>
     <string name="Password">Password</string>
     <string name="Camera">Cam</string>
+    <string name="dialog_message">Do you want to finish the activity?</string>
+    <string name="dialog_title">Finish Activity?</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
+    <string name="startChat">Start Chat</string>
+
+
 </resources>

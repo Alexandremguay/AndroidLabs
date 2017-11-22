@@ -73,14 +73,14 @@ public class ListItemsActivity extends Activity {
         CharSequence text = "";
         int duration;
 
-        if (switchButton.isChecked() == true) {
+        if (switchButton.isChecked()) {
             text = "Switch is On";
             duration = Toast.LENGTH_SHORT;
             Toast toast = Toast.makeText(this, text, duration);
             toast.show();
         }
 
-        if (switchButton.isChecked() == false) {
+        if (!switchButton.isChecked()) {
             text = "Switch is Off";
             duration = Toast.LENGTH_LONG;
             Toast toast = Toast.makeText(this, text, duration);
@@ -94,7 +94,7 @@ public class ListItemsActivity extends Activity {
                 .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) { //we do not use dialog or id anywhere
                         Intent resultIntent = new Intent(  );
-                        resultIntent.putExtra("Response", "Here you go bud!");
+                        resultIntent.putExtra("Response", "Moving on!!");
                         setResult(Activity.RESULT_OK, resultIntent);
                         finish();
                     }
