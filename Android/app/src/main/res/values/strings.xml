@@ -15,6 +15,9 @@
     <string name="cancel">Cancel</string>
     <string name="chat">Start Chat</string>
     <string name="send">Send</string>
+    <string name="currentTemp">Current Temperature</string>
+    <string name="minTemp">Minimum Temperature</string>
+    <string name="maxTemp">Maximum Temperature</string>
 
 
 </resources>

@@ -14,6 +14,7 @@ public class StartActivity extends Activity {
     protected static final String ACTIVITY_NAME = "StartActivity";
     protected Button startButton;
     protected Button chat;
+    protected Button weatherButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,12 +24,12 @@ public class StartActivity extends Activity {
 
         startButton = findViewById(R.id.startButton);
         chat = findViewById(R.id.chat);
+        weatherButton = findViewById(R.id.weather);
 
 
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) { //similar to lambda expressions
-
                 Intent intent = new Intent(StartActivity.this, ListItemsActivity.class);
                 startActivityForResult(intent, 10);
                 onActivityResult(10, 10, intent);
@@ -37,12 +38,21 @@ public class StartActivity extends Activity {
 
         chat.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) { //similar to lambda expressions
+            public void onClick(View v) {
                 Log.i(ACTIVITY_NAME, "User Clicked Start Chat");
                 Intent intent = new Intent(StartActivity.this, ChatWindow.class);
                 startActivityForResult(intent, 10);
                 onActivityResult(10, 10, intent);
+            }
+        });
 
+        weatherButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i(ACTIVITY_NAME, "User Started Weather Forecast");
+                Intent intent = new Intent(StartActivity.this, WeatherForecast.class);
+                startActivityForResult(intent, 10);
+                onActivityResult(10, 10, intent);
             }
         });
 

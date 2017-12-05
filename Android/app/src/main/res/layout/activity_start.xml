@@ -43,4 +43,11 @@
         android:text="Start Chat"
         android:layout_below="@id/startButton"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/weather"
+        android:text="Start Weather Forecast"
+        android:layout_below="@id/chat"/>
+
 </RelativeLayout>
