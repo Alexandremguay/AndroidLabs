@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -27,29 +28,38 @@ import java.net.URL;
 public class WeatherForecast extends Activity {
 
     protected ProgressBar progress;
-    private static final String ns = null;
+    protected static final String Activity_Name = "WeatherForecast";
+
     protected XmlPullParserFactory xml;
     protected static XmlPullParser parser;
     protected URL url;
     protected HttpURLConnection conn;
     protected InputStream input;
     protected String address = "http://api.openweathermap.org/data/2.5/weather?q=ottawa,ca&APPID=d99666875e0e51521f0040a3d97d0f6a&mode=xml&units=metric";
-    protected String minTemp;
-    protected String maxTemp;
-    protected String currentTemp;
-    protected String iconName;
+    protected TextView minTemp;
+    protected TextView maxTemp;
+    protected TextView currentTemp;
+    protected ImageView iconName;
     protected Bitmap icon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather_forecast);
+
+        currentTemp = (TextView) findViewById(R.id.currentTemp);
+        minTemp = (TextView) findViewById(R.id.minTemp);
+        maxTemp = (TextView) findViewById(R.id.maxTemp);
+        iconName = (ImageView) findViewById(R.id.currentWeather);
+
         progress = findViewById(R.id.progress);
         new ForecastQuery().execute(address);
 
     }
 
     private class ForecastQuery extends AsyncTask<String, Integer, String> {
+
+        private final String ns = null;
 
         @Override
         protected void onPreExecute() {
@@ -58,6 +68,9 @@ public class WeatherForecast extends Activity {
 
         @Override
         protected String doInBackground(String... urls) {
+
+            Log.i(Activity_Name, "In doInBackground()");
+
 
             try {
                 url = new URL(urls[0]);

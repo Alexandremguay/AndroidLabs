@@ -50,7 +50,7 @@ public class StartActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Log.i(ACTIVITY_NAME, "User Started Weather Forecast");
-                Intent intent = new Intent(StartActivity.this, WeatherForecast.class);
+                Intent intent = new Intent(StartActivity.this, WeatherForecast1.class);
                 startActivityForResult(intent, 10);
                 onActivityResult(10, 10, intent);
             }

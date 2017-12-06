@@ -32,7 +32,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ChatWindow" />
-        <activity android:name=".WeatherForecast"></activity>
+        <activity android:name=".WeatherForecast1"></activity>
     </application>
 
 </manifest>
