@@ -8,6 +8,7 @@
     tools:context="com.example.alexandremguay.androidlabs.ListItemsActivity">
 
 
+
     <RadioButton
         android:id="@+id/button1"
         android:layout_gravity="fill"
@@ -30,8 +31,8 @@
         android:id="@+id/imageButton"
         android:layout_gravity="fill"
         android:src="@android:drawable/ic_menu_camera"
-        android:text="ImageButton"
         android:contentDescription="@string/Camera"
         android:layout_columnWeight="1"/>
 
 </GridLayout>
+

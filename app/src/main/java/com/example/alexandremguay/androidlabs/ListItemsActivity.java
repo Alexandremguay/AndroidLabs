@@ -5,8 +5,6 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.media.ThumbnailUtils;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -61,52 +59,52 @@ public class ListItemsActivity extends Activity {
         });
     }
 
-@Override
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-    if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-        //https://developer.android.com/training/camera/photobasics.html#TaskPhotoView
-        Bundle extras = data.getExtras();
-        Bitmap imageBitmap = (Bitmap) extras.get("data");
-        imageButton.setImageBitmap(imageBitmap);
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            //https://developer.android.com/training/camera/photobasics.html#TaskPhotoView
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            imageButton.setImageBitmap(imageBitmap);
+        }
     }
-}
 
     protected void setOnCheckedChanged(Switch switchButton) {
         CharSequence text = "";
         int duration;
 
-        if (switchButton.isChecked() == true) {
-                text = "Switch is On";
-                duration = Toast.LENGTH_SHORT;
-                Toast toast = Toast.makeText(this, text, duration);
-                toast.show();
-            }
-
-            if (switchButton.isChecked() == false) {
-                text = "Switch is Off";
-                duration = Toast.LENGTH_LONG;
-                Toast toast = Toast.makeText(this, text, duration);
-                toast.show();
-            }
+        if (switchButton.isChecked()) {
+            text = "Switch is On";
+            duration = Toast.LENGTH_SHORT;
+            Toast toast = Toast.makeText(this, text, duration);
+            toast.show();
         }
+
+        if (!switchButton.isChecked()) {
+            text = "Switch is Off";
+            duration = Toast.LENGTH_LONG;
+            Toast toast = Toast.makeText(this, text, duration);
+            toast.show();
+        }
+    }
     protected void onCheckedChanged(CheckBox checkBox) {
         AlertDialog.Builder builder = new AlertDialog.Builder(ListItemsActivity.this);
         builder.setMessage(R.string.dialog_message)
-        .setTitle(R.string.dialog_title)
-        .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) { //we do not use dialog or id anywhere
-                Intent resultIntent = new Intent(  );
-                resultIntent.putExtra("Response", "Here you go bud!");
-                setResult(Activity.RESULT_OK, resultIntent);
-                finish();
-            }
-        })
-        .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                dialog.cancel();
-            }
-        })
-        .show(); // all one long line of code. No repeat "builder.(...)" and no ";" --> BUILDER PATTERN
+                .setTitle(R.string.dialog_title)
+                .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) { //we do not use dialog or id anywhere
+                        Intent resultIntent = new Intent(  );
+                        resultIntent.putExtra("Response", "Moving on!!");
+                        setResult(Activity.RESULT_OK, resultIntent);
+                        finish();
+                    }
+                })
+                .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                })
+                .show(); // all one long line of code. No repeat "builder.(...)" and no ";" --> BUILDER PATTERN
     }
 
     @Override

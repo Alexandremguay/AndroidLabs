@@ -1,21 +1,20 @@
 package com.example.alexandremguay.androidlabs;
 
+//auto indent 1) Ctrl+A , 2) Ctrl+Alt+L
+
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class StartActivity extends Activity {
-
     protected static final String ACTIVITY_NAME = "StartActivity";
     protected Button startButton;
     protected Button chat;
+    protected Button weatherButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,11 +22,12 @@ public class StartActivity extends Activity {
         setContentView(R.layout.activity_start); //R is the java file that gets created from XML files;
         Log.i(ACTIVITY_NAME, "In onCreate()");
 
-        startButton = (Button) findViewById(R.id.startButton);
-        chat = (Button) findViewById(R.id.alex);
+        startButton = findViewById(R.id.startButton);
+        chat = findViewById(R.id.chat1);
+        weatherButton = findViewById(R.id.weather);
 
         startButton.setOnClickListener(new View.OnClickListener() {
-
+            @Override
             public void onClick(View v) { //similar to lambda expressions
                 Intent intent = new Intent(StartActivity.this, ListItemsActivity.class);
                 startActivityForResult(intent, 10);
@@ -36,14 +36,27 @@ public class StartActivity extends Activity {
         });
 
         chat.setOnClickListener(new View.OnClickListener() {
-
+            @Override
             public void onClick(View v) {
                 Log.i(ACTIVITY_NAME, "User Clicked Start Chat");
+                Intent intent = new Intent(StartActivity.this, ChatWindow.class);
+                startActivityForResult(intent, 10);
+                onActivityResult(10, 10, intent);
+            }
+        });
+
+        weatherButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i(ACTIVITY_NAME, "User Started Weather Forecast");
+                Intent intent = new Intent(StartActivity.this, WeatherForecast1.class);
+                startActivityForResult(intent, 10);
+                onActivityResult(10, 10, intent);
             }
         });
 
     }
-//auto indent 1) Ctrl+A , 2) Ctrl+Alt+L
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
@@ -57,8 +70,6 @@ public class StartActivity extends Activity {
                 toast.show();
             }
         }
-
-
     }
 
     @Override
@@ -91,7 +102,4 @@ public class StartActivity extends Activity {
         super.onDestroy();
         Log.i(ACTIVITY_NAME, "In onDestroy()");
     }
-
-
 }
-
