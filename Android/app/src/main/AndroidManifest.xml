@@ -32,7 +32,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ChatWindow" />
-        <activity android:name=".WeatherForecast1"></activity>
+        <activity android:name=".WeatherForecast1" />
+
     </application>
 
 </manifest>
